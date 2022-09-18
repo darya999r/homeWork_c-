@@ -8,8 +8,24 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
+
+int [] arrayRandom = new int [90];
+
+for (int i=0; i<arrayRandom.Length-1; i++)
+{
+    arrayRandom[i] = 10+i;
+}
+for (int i=0; i<arrayRandom.Length; i++)
+{
+    int j = new Random().Next(arrayRandom.Length);
+    int temp = arrayRandom[j];
+    arrayRandom[j] = arrayRandom[i];
+    arrayRandom[i] = temp;
+}
+
+
 int [,,] array = new int [2, 2, 2];
-// int [,,] array = Enumerable.Range(1,64).ToArray();
+int count = 0;
 
 for (int x=0; x<array.GetLength(0); x++)
 {
@@ -17,9 +33,10 @@ for (int x=0; x<array.GetLength(0); x++)
     {
         for (int z=0; z<array.GetLength(2); z++)
         {
-            array[x,y,z] = new Random().Next(10,100);
-            Console.Write(array[x,y,z] + "\t");
+            array[x,y,z] = arrayRandom[count];
+            Console.Write($"{array[x,y,z]}({x},{y},{z}) ");
+            count+=1;
         }
-        
+        Console.WriteLine();
     }
 }

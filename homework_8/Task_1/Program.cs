@@ -33,13 +33,13 @@ for (int i=0; i<rows; i++)
 {
     for (int j=0; j<columns; j++)
     {
-        for (int h=0; h<(columns-1); h++)
+        for (int h=j+1; h<columns; h++)
         {
-            if (matrix[i,h] < matrix[i,h+1])
+            if (matrix[i,h] < matrix[i,j])
             {
                 int temp = matrix[i,h];
-                matrix[i,h] = matrix[i,h+1];
-                matrix[i,h+1] = temp;
+                matrix[i,h] = matrix[i,j];
+                matrix[i,j] = temp;
             }
         }
         
