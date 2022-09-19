@@ -9,12 +9,18 @@ Console.Write("Enter number M: ");
 int M = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter number N: ");
 int N = Convert.ToInt32(Console.ReadLine());
-int sum = 0;
+// int sum = 0;
 
-for (int count=M; count<=N; count+=1)
+// for (int count=M; count<=N; count+=1)
+// {
+//     sum+=count;
+// }
+
+// Console.WriteLine("Sum of numbers from M to N: " + sum);
+
+int Summa(int M, int N)
 {
-    sum+=count;
+    if (M == N) return M;
+    return (M + Summa(M + 1, N));
 }
-
-Console.WriteLine("Sum of numbers from M to N: " + sum);
-
+Console.WriteLine(Summa(M, N));
